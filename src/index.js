@@ -4,7 +4,7 @@ import {parse} from 'querystring';
 export const handler = (event) => {
     return new Promise((resolve, reject) => {
         if (event?.requestContext?.http?.method === 'POST') {
-            const params = parse(event.requestContext.isBase64Encoded ? atob(event.requestContext.body) : event.requestContext.body);
+            const params = parse(event.isBase64Encoded ? atob(event.body) : event.body);
 
             console.log(event);
             console.log(params);
