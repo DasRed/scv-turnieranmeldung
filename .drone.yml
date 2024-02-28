@@ -1,7 +1,16 @@
 kind: template
 load: nodeDeployLambda.jsonnet
 data:
-    node: 20.11.1
+    node: 20
     lambdaFunctionName: SCV-Turnieranmeldung
     region: eu-west-1
     pathDist: 'dist/ui'
+
+---
+
+kind: template
+load: nodeProject.jsonnet
+data:
+    node: 20
+    port: 7880
+    environmentVariables: '[]'

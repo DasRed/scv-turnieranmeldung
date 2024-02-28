@@ -1,5 +1,6 @@
 import {parse} from 'querystring';
-import template from './template/index.js';
+import get from './get.js';
+import post from './post.js';
 
 const config = {
     ages: {
@@ -12,63 +13,23 @@ const config = {
 };
 
 export const handler = (event) => {
-    return new Promise((resolve, reject) => {
-        if (event?.requestContext?.http?.method === 'POST') {
-            const params = parse(event.isBase64Encoded ? atob(event.body) : event.body);
-
-            let error = undefined;
-            // validierung
-            switch (true) {
-                case config.ages[params.age] === undefined:
-                    error = 'Bitte wählen sie eine gültige Alterklasse aus.';
-                    break;
-
-                case params.association == null || params.association.length === 0 :
-                    error = 'Bitte geben sie ihren Vereinsnamen an.';
-                    break;
-
-                case params.team == null || params.team.length === 0 :
-                    error = 'Bitte geben sie ihre Mannschaft an.';
-                    break;
-
-                case params.coach == null || params.coach.length === 0 :
-                    error = 'Bitte geben sie den Namen ihres Trainers an.';
-                    break;
-
-                case params.email == null || params.email.length === 0 :
-                    error = 'Bitte geben sie die Email ihres Trainers an.';
-                    break;
-
-                case params.mobile == null || params.mobile.length === 0 :
-                    error = 'Bitte geben sie die Telefonnummer ihres Trainers an.';
-                    break;
-            }
-
-            if (error !== undefined) {
-                resolve({
-                    statusCode: 200,
-                    headers:    {'Content-Type': 'text/html; charset=UTF-8'},
-                    body:       template.body(template.form({ages: config.ages, error}))
-                });
-
-                return;
-            }
-
-            resolve({
-                statusCode: 200,
-                body:       JSON.stringify(event)
-            });
-
-        }
-
-
-        // deliver form
-        else {
+    return new Promise(async (resolve) => {
+        if (process.env.SCV_CLOSED === '1') {
             resolve({
                 statusCode: 200,
                 headers:    {'Content-Type': 'text/html; charset=UTF-8'},
-                body:       template.body(template.form({ages: config.ages}))
+                body:       template.body(template.closed())
             });
+        }
+
+        // handle post
+        if (event?.requestContext?.http?.method === 'POST') {
+            resolve(await post(config, parse(event.isBase64Encoded ? atob(event.body) : event.body)));
+        }
+
+        // deliver form
+        else {
+            resolve(await get(config));
         }
     });
 };

@@ -1,7 +1,7 @@
 {
     "version": "0.0.0",
     "name": "scv-turnieranmeldung",
-    "main": "src/index.js",
+    "main": "src/ui/index.js",
     "type": "module",
     "engines": {
         "node": ">=20.11.1",
@@ -9,6 +9,8 @@
     },
     "scripts": {
         "build": "node ./build/index.js",
+        "dev": "nodemon --watch src ./src/api/index.js",
+        "start": "forever --minUptime 1000 --spinSleepTime 100 ./src/api/index.js",
         "semantic-release": "semantic-release"
     },
     "author": "Marco Starker",
@@ -17,7 +19,15 @@
         "type": "git",
         "url": "https://github.com/DasRed/github-drone-connector.git"
     },
+    "dependencies": {
+        "@koa/router": "^12.0.0",
+        "mysql2": "^2.3.3",
+        "koa": "^2.13.4",
+        "koa-bodyparser": "^4.3.0",
+        "forever": "^4.0.3"
+    },
     "devDependencies": {
+        "nodemon": "^2.0.19",
         "@semantic-release/commit-analyzer": "^10.0.1",
         "@semantic-release/git": "^10.0.1",
         "@semantic-release/github": "^9.0.3",
@@ -26,7 +36,8 @@
         "esbuild-plugin-clear": "^1.0.1",
         "esbuild-plugin-time": "^1.0.0",
         "semantic-release": "^22.0.8",
-        "semantic-release-cli": "^5.4.4"
+        "semantic-release-cli": "^5.4.4",
+        "@types/koa-router": "^7.4.4"
     },
     "release": {
         "branches": [
