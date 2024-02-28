@@ -42,15 +42,17 @@ export default (content) => `
           border-radius: 5px;
           color: #333;
           transition: all 0.3s ease-out;
+          width: 100%
+          
+          margin-bottom: 10px;
         }
         
-        input, select:hover { border-radius: 8px; }
-        input, select:focus { 
+        input:hover, select:hover { border-radius: 8px; }
+        input:focus, select:focus { 
           outline: none;
           border-radius: 8px; 
           border-color: #EBD292;
         }
-
 
         button {
             display: inline-block;
