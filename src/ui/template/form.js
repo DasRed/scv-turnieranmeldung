@@ -1,6 +1,6 @@
 export default ({ages, error = undefined}) => `
     ${error === undefined ? '' : `<div class="error">${error}</div>`}
-    <form action="." method="post">
+    <form action="" method="post">
         <label for="age">Alterklasse:</label>
         <select name="age" required>
             ${Object.entries(ages).map(([value, text]) => `<option value='${value}'>${text}</option>`).join('')}
