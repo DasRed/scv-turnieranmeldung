@@ -17,7 +17,9 @@ export default (content) => `
             font-size: 16px;
             font-weight: normal;
             font-style: normal;
+            color: #333
         }
+        
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -56,6 +58,7 @@ export default (content) => `
         }
 
         button {
+            color: #333;
             font-family: Montserrat, sans-serif;
             margin-top: 10px;
             display: inline-block;
