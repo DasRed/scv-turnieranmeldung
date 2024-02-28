@@ -5,6 +5,8 @@ export default (content) => `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SC Vierkirchen Gruber CUP - Turnieranmeldung</title>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://www.scvierkirchen.de/tl_files/scv/favicon.ico">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.scvierkirchen.de/tl_files/scv/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -33,25 +35,27 @@ export default (content) => `
         }
 
         input, select {
-          display: block;
-          padding: 5px;
-          border: 4px solid #F1B720;
-          border-radius: 5px;
-          color: #333;
-          transition: all 0.3s ease-out;
-          width: 100%;
-          margin-bottom: 10px;
-          box-sizing: border-box;
+            font-family: Montserrat, sans-serif;
+            display: block;
+            padding: 5px;
+            border: 4px solid #F1B720;
+            border-radius: 5px;
+            color: #333;
+            transition: all 0.3s ease-out;
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box;
         }
         
         input:hover, select:hover { border-radius: 8px; }
         input:focus, select:focus { 
-          outline: none;
-          border-radius: 8px; 
-          border-color: #EBD292;
+            outline: none;
+            border-radius: 8px; 
+            border-color: #EBD292;
         }
 
         button {
+            font-family: Montserrat, sans-serif;
             margin-top: 10px;
             display: inline-block;
             padding: 8px 15px;

@@ -1,6 +1,7 @@
 import template from './template/index.js';
 
 export const handler = (event) => {
+    console.log(event);
     return new Promise((resolve, reject) => {
         if (event.httpMethod === 'POST') {
             resolve({
