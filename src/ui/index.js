@@ -1,6 +1,7 @@
 import {parse} from 'querystring';
 import get from './get.js';
 import post from './post.js';
+import template from './template/index.js';
 
 const config = {
     ages: {

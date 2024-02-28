@@ -1,5 +1,6 @@
 import get from './get.js';
 import save from './save.js';
+import template from './template/index.js';
 
 export default async (config, params) => {
     let error = undefined;
