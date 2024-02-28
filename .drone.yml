@@ -6,7 +6,6 @@ data:
     lambdaFunctionName: SCV-Turnieranmeldung
     region: eu-west-1
     pathDist: 'dist/ui'
-
 ---
 kind: template
 load: nodeProject.jsonnet
