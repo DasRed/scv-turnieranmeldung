@@ -33,7 +33,7 @@ const config = {
 
 export const handler = (event) => {
     return new Promise(async (resolve) => {
-        console.log(event);
+        //console.log(event);
 
         if (process.env.SCV_CLOSED === '1') {
             resolve({
