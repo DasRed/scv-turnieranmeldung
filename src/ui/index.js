@@ -4,6 +4,10 @@ import post from './post.js';
 import template from './template/index.js';
 
 const config = {
+    headers: {
+        'Cache-Control': 'no-cache',
+        'Content-Type': 'text/html; charset=UTF-8'
+    },
     ages: {
         U7:  'U7 Jg. 2017 - 14.07.2024 - 10:00',
         U8:  'U8 Jg. 2016 - 13.07.2024 - 12:30',
@@ -38,7 +42,7 @@ export const handler = (event) => {
         if (process.env.SCV_CLOSED === '1') {
             resolve({
                 statusCode: 200,
-                headers:    {'Content-Type': 'text/html; charset=UTF-8'},
+                headers:    {...config.headers},
                 body:       template.body(template.closed())
             });
         }
@@ -52,7 +56,7 @@ export const handler = (event) => {
         else if (event?.queryStringParameters?.success !== undefined) {
             resolve({
                 statusCode: 200,
-                headers:    {'Content-Type': 'text/html; charset=UTF-8'},
+                headers:    {...config.headers},
                 body:       template.body(template.success())
             });
         }

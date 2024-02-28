@@ -34,7 +34,7 @@ export default async (config, params) => {
         return {
             statusCode: 303,
             headers:    {
-                'Content-Type': 'text/html; charset=UTF-8',
+                ...config.headers,
                 'Location':     './?error=' + error
             }
         };
@@ -44,7 +44,7 @@ export default async (config, params) => {
         return {
             statusCode: 303,
             headers:    {
-                'Content-Type': 'text/html; charset=UTF-8',
+                ...config.headers,
                 'Location':     './?error=' + config.errorsMap.SAVE_FAILED
             }
         };
@@ -53,7 +53,7 @@ export default async (config, params) => {
     return {
         statusCode: 303,
         headers:    {
-            'Content-Type': 'text/html; charset=UTF-8',
+            ...config.headers,
             'Location':     './?success'
         }
     };
