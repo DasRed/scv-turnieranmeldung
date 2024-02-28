@@ -41,8 +41,11 @@ export default async (config, params) => {
     }
 
     return {
-        statusCode: 200,
-        headers:    {'Content-Type': 'text/html; charset=UTF-8'},
+        statusCode: 303,
+        headers:    {
+            'Content-Type': 'text/html; charset=UTF-8',
+            'Location':     './?success'
+        },
         body:       template.body(template.success())
     };
 }

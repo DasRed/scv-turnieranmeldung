@@ -15,6 +15,8 @@ const config = {
 
 export const handler = (event) => {
     return new Promise(async (resolve) => {
+        console.log(event);
+
         if (process.env.SCV_CLOSED === '1') {
             resolve({
                 statusCode: 200,
@@ -26,6 +28,15 @@ export const handler = (event) => {
         // handle post
         if (event?.requestContext?.http?.method === 'POST') {
             resolve(await post(config, parse(event.isBase64Encoded ? atob(event.body) : event.body)));
+        }
+
+        // success
+        else if (event?.requestContext?.http?.method === 'PUT') {
+            resolve({
+                statusCode: 200,
+                headers:    {'Content-Type': 'text/html; charset=UTF-8'},
+                body:       template.body(template.success())
+            });
         }
 
         // deliver form
