@@ -4,3 +4,4 @@ data:
     node: 20.11.1
     lambdaFunctionName: SCV-Turnieranmeldung
     region: eu-west-1
+    pathDist: 'dist/ui'

@@ -43,7 +43,6 @@ export const handler = (event) => {
                     error = 'Bitte geben sie die Telefonnummer ihres Trainers an.';
                     break;
             }
-            error = 'Bitte geben sie die Telefonnummer ihres Trainers an.';
 
             if (error !== undefined) {
                 resolve({

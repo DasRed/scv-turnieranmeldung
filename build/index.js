@@ -7,7 +7,7 @@ import {fileURLToPath} from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 await esbuild.build({
-    entryPoints:   [__dirname + '/../src/index.js'],
+    entryPoints:   [__dirname + '/../src/ui/index.js'],
     bundle:        true,
     minify:        false,
     platform:      'node',
@@ -15,9 +15,9 @@ await esbuild.build({
     target:        ['esnext'],
     format:        'esm',
     legalComments: 'none',
-    outfile:       __dirname + '/../dist/index.mjs',
+    outfile:       __dirname + '/../dist/ui/index.mjs',
     plugins:       [
-        clear(__dirname + '/../dist'),
+        clear(__dirname + '/../dist/ui'),
         time(),
     ],
 });

@@ -27,6 +27,7 @@ export default (content) => `
         .error {
             color: #FF0000;
             font-weight: bold;
+            margin-bottom: 10px;
         }
 
         label {
