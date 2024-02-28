@@ -5,11 +5,16 @@ export default (content) => `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SC Vierkirchen Gruber CUP - Turnieranmeldung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #f5eab3;
-            font-family: Verdana, sans-serif;
-            font-size: 11px;
+            font-family: Montserrat, sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            font-style: normal;
         }
         .container {
             max-width: 600px;
@@ -27,14 +32,6 @@ export default (content) => `
             margin-bottom: 5px;
         }
 
-        /*input, select {*/
-        /*    !*width: 100%;*!*/
-        /*    !*padding: 8px;*!*/
-        /*    !*margin-bottom: 10px;*!*/
-        /*    !*box-sizing: border-box;*!*/
-        /*}*/
-
-
         input, select {
           display: block;
           padding: 5px;
@@ -42,9 +39,9 @@ export default (content) => `
           border-radius: 5px;
           color: #333;
           transition: all 0.3s ease-out;
-          width: 100%
-          
+          width: 100%;
           margin-bottom: 10px;
+          box-sizing: border-box;
         }
         
         input:hover, select:hover { border-radius: 8px; }
@@ -55,6 +52,7 @@ export default (content) => `
         }
 
         button {
+            margin-top: 10px;
             display: inline-block;
             padding: 8px 15px;
             background: #FCEE7C;
