@@ -40,6 +40,7 @@ export const handler = (event) => {
         console.log(event);
 
         if (process.env.SCV_CLOSED === '1') {
+            console.log('Registration is closed');
             resolve({
                 statusCode: 200,
                 headers:    {...config.headers},
@@ -48,12 +49,14 @@ export const handler = (event) => {
         }
 
         // handle post
-        if (event?.requestContext?.http?.method === 'POST') {
+        if (event?.requestContext?.http?.method === 'POST' || event?.httpMethod === 'POST') {
+            console.log('start post handling');
             resolve(await post(config, parse(event.isBase64Encoded ? atob(event.body) : event.body)));
         }
 
         // success
         else if (event?.queryStringParameters?.success !== undefined) {
+            console.log('start success handling');
             resolve({
                 statusCode: 200,
                 headers:    {...config.headers},
@@ -63,11 +66,13 @@ export const handler = (event) => {
 
         // error on save
         else if (event?.queryStringParameters?.error !== undefined && config.errors[event?.queryStringParameters?.error] !== undefined) {
+            console.log('start error handling');
             resolve(await get(config, config.errors[event?.queryStringParameters?.error]));
         }
 
         // deliver form
         else {
+            console.log('start get handling');
             resolve(await get(config));
         }
     });

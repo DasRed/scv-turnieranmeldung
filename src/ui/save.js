@@ -18,6 +18,7 @@ export default (params) => {
                 response.on('data', (chunk) => body += chunk);
                 response.on('end', () => {
                     if (response.status >= 400) {
+                        console.log('error for saving data to backend api', response);
                         return resolve(false);
                     }
 

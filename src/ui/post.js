@@ -31,6 +31,7 @@ export default async (config, params) => {
     }
 
     if (error !== undefined) {
+        console.log('error found in post parameters', {error});
         return {
             statusCode: 303,
             headers:    {
@@ -41,6 +42,7 @@ export default async (config, params) => {
     }
 
     if ((await save(params)) === false) {
+        console.log('save post request failed');
         return {
             statusCode: 303,
             headers:    {
@@ -50,6 +52,7 @@ export default async (config, params) => {
         };
     }
 
+    console.log('save post request succeeded');
     return {
         statusCode: 303,
         headers:    {
