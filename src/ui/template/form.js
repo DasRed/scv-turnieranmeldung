@@ -1,6 +1,10 @@
 export default ({ages, error = undefined}) => `
     ${error === undefined ? '' : `<div class="error">${error}</div>`}
     <form action="" method="post">
+        <p>
+            Gehen mehr Anmeldungen ein als Plätze frei sind, entscheidet der Termin der Anmeldung. Ihr werdet aber in jedem Fall informiert.
+        </p>
+                
         <label for="age">Alterklasse:</label>
         <select name="age" required>
             ${Object.entries(ages).map(([value, text]) => `<option value='${value}'>${text}</option>`).join('')}
@@ -22,5 +26,9 @@ export default ({ages, error = undefined}) => `
         <input type="tel" name="mobile" required>
 
         <button type="submit">Anmelden</button>
+
+        <p>
+        
+        </p>
     </form>
 `;
